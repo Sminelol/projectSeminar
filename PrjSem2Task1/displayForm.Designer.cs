@@ -34,6 +34,9 @@
             this.studentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subjectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainDGV = new System.Windows.Forms.DataGridView();
             this.connString = new System.Windows.Forms.BindingSource(this.components);
             this.menu.SuspendLayout();
@@ -44,7 +47,10 @@
             // menu
             // 
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.displayToolStripMenuItem});
+            this.displayToolStripMenuItem,
+            this.deleteToolStripMenuItem,
+            this.adToolStripMenuItem,
+            this.editToolStripMenuItem});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(524, 24);
@@ -73,18 +79,48 @@
             this.subjectsToolStripMenuItem.Name = "subjectsToolStripMenuItem";
             this.subjectsToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.subjectsToolStripMenuItem.Text = "Subjects";
+            this.subjectsToolStripMenuItem.Click += new System.EventHandler(this.subjectsToolStripMenuItem_Click);
             // 
             // marksToolStripMenuItem
             // 
             this.marksToolStripMenuItem.Name = "marksToolStripMenuItem";
             this.marksToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.marksToolStripMenuItem.Text = "Marks";
+            this.marksToolStripMenuItem.Click += new System.EventHandler(this.marksToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            // 
+            // adToolStripMenuItem
+            // 
+            this.adToolStripMenuItem.Name = "adToolStripMenuItem";
+            this.adToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.adToolStripMenuItem.Text = "Add";
+            this.adToolStripMenuItem.Click += new System.EventHandler(this.adToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // mainDGV
             // 
+            this.mainDGV.AllowUserToAddRows = false;
+            this.mainDGV.AllowUserToDeleteRows = false;
+            this.mainDGV.AllowUserToResizeColumns = false;
+            this.mainDGV.AllowUserToResizeRows = false;
+            this.mainDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.mainDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mainDGV.Location = new System.Drawing.Point(12, 27);
+            this.mainDGV.MultiSelect = false;
             this.mainDGV.Name = "mainDGV";
+            this.mainDGV.ReadOnly = true;
+            this.mainDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.mainDGV.Size = new System.Drawing.Size(500, 344);
             this.mainDGV.TabIndex = 1;
             // 
@@ -115,6 +151,9 @@
         private System.Windows.Forms.ToolStripMenuItem marksToolStripMenuItem;
         private System.Windows.Forms.DataGridView mainDGV;
         private System.Windows.Forms.BindingSource connString;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
     }
 }
 
