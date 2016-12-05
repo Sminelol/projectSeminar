@@ -13,7 +13,7 @@ namespace PrjSem2Task1
 {
     public partial class editForm : Form
     {
-        public SqlConnection sqlC = new SqlConnection("Data Source=DESKTOP-2AJTSGQ\\SMNDB;Initial Catalog=firstTaskPrSem;Integrated Security=True");
+        public SqlConnection sqlC = new SqlConnection("Data Source=DESKTOP-J4P172J\\SMNDB;Initial Catalog=DBSem23.11;Integrated Security=True;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Application Name=\"Microsoft SQL Server Data Tools, SQL Server Object Explorer\"");
         public Guid editedItemKey;
         public editForm(string type, DataGridViewRow _dataGridRow)
         {
@@ -26,15 +26,18 @@ namespace PrjSem2Task1
             {
                 case "student":
                     studentGB.Show();
+                    Text = "student";
                     studentNameTB.Text = _dataGridRow.Cells[1].Value.ToString();
                     studentSurnameTB.Text = _dataGridRow.Cells[2].Value.ToString();
                     break;
                 case "subject":
                     subjectGB.Show();
+                    Text = "subject";
                     subjectNameTB.Text = _dataGridRow.Cells[1].Value.ToString();
                     break;
                 case "mark":
                     markGB.Show();
+                    Text = "mark";
                     markTB.Text = _dataGridRow.Cells[3].Value.ToString();
                     break;
             }

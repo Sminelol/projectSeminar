@@ -11,6 +11,7 @@ namespace PrjSem2Task1
 {
     class databaseQueries
     {
+        public SqlConnection sqlC = new SqlConnection("Data Source=DESKTOP-J4P172J\\SMNDB;Initial Catalog=DBSem23.11;Integrated Security=True;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Application Name=\"Microsoft SQL Server Data Tools, SQL Server Object Explorer\"");
         #region displayForm
         public static DataTable GetDataTable(string tbName, SqlConnection sqlC)
         {
@@ -130,7 +131,7 @@ namespace PrjSem2Task1
         public static void deleteStudent(Guid _studentID, SqlConnection sqlC)
         {
             SqlCommand com = sqlC.CreateCommand();
-            com.CommandText = "delete from students where StudentID="+_studentID;        
+            com.CommandText = "delete from students where StudentID='"+_studentID+"'";        
             sqlC.Open();
             try
             {
@@ -149,7 +150,7 @@ namespace PrjSem2Task1
         public static void deleteSubject(Guid _subjectID, SqlConnection sqlC)
         {
             SqlCommand com = sqlC.CreateCommand();
-            com.CommandText = "delete from subjects where SubjectID="+_subjectID;
+            com.CommandText = "delete from subjects where SubjectID='"+_subjectID+"'";
             sqlC.Open();
             try
             {
@@ -168,7 +169,7 @@ namespace PrjSem2Task1
         public static void deleteMark(Guid _markID, SqlConnection sqlC)
         {
             SqlCommand com = sqlC.CreateCommand();
-            com.CommandText = "delete from marks where markID=_markID";
+            com.CommandText = "delete from marks where markID='"+_markID+"'";
             sqlC.Open();
             try
             {

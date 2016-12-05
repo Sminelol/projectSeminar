@@ -93,6 +93,7 @@
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // adToolStripMenuItem
             // 
@@ -124,6 +125,10 @@
             this.mainDGV.Size = new System.Drawing.Size(500, 344);
             this.mainDGV.TabIndex = 1;
             // 
+            // connString
+            // 
+            this.connString.CurrentChanged += new System.EventHandler(this.connString_CurrentChanged);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,6 +138,7 @@
             this.Controls.Add(this.menu);
             this.MainMenuStrip = this.menu;
             this.Name = "main";
+            this.Load += new System.EventHandler(this.main_Load);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainDGV)).EndInit();

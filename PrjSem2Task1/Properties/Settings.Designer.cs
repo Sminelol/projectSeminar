@@ -33,5 +33,16 @@ namespace PrjSem2Task1.Properties {
                 return ((string)(this["firstTaskPrSemConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-J4P172J\\SMNDB;Initial Catalog=DBSem23.11;Integrated Security=" +
+            "True")]
+        public string DBSem23_11ConnectionString {
+            get {
+                return ((string)(this["DBSem23_11ConnectionString"]));
+            }
+        }
     }
 }

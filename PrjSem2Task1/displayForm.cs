@@ -14,8 +14,8 @@ namespace PrjSem2Task1
 {
     public partial class main : Form
     {
-        string typeOfCurrentDisplayedItems = "";
-        public SqlConnection sqlC = new SqlConnection("Data Source=DESKTOP-2AJTSGQ\\SMNDB;Initial Catalog=firstTaskPrSem;Integrated Security=True");
+        string typeOfCurrentDisplayedItems = ""; //тип последних отображенных данных в форме
+        public SqlConnection sqlC = new SqlConnection("Data Source=DESKTOP-J4P172J\\SMNDB;Initial Catalog=DBSem23.11;Integrated Security=True;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Application Name=\"Microsoft SQL Server Data Tools, SQL Server Object Explorer\"");
         public main()
         {
             InitializeComponent();     
@@ -74,6 +74,37 @@ namespace PrjSem2Task1
                 case "mark":
                     marksToolStripMenuItem.PerformClick();
                     break;
+            }
+        }
+
+        private void connString_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void main_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (mainDGV.SelectedRows.Count > 0)
+            {
+
+                switch (typeOfCurrentDisplayedItems)
+                {
+                    case "student":
+                        databaseQueries.deleteStudent(new Guid(mainDGV.SelectedRows[0].Cells[0].Value.ToString()), sqlC);
+                        break;
+                    case "subject":
+                        databaseQueries.deleteSubject(new Guid(mainDGV.SelectedRows[0].Cells[0].Value.ToString()), sqlC);
+                        break;
+                    case "mark":
+                        databaseQueries.deleteMark(new Guid(mainDGV.SelectedRows[0].Cells[0].Value.ToString()), sqlC);
+                        break;
+                }
+                refreshTable();
             }
         }
     }

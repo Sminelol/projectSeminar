@@ -13,19 +13,12 @@ namespace PrjSem2Task1
 {
     public partial class addForm : Form
     {
-        public SqlConnection sqlC = new SqlConnection("Data Source=DESKTOP-2AJTSGQ\\SMNDB;Initial Catalog=firstTaskPrSem;Integrated Security=True");
-        DataTable originalStudentsDT = new DataTable();
+        public SqlConnection sqlC = new SqlConnection("Data Source=DESKTOP-J4P172J\\SMNDB;Initial Catalog=DBSem23.11;Integrated Security=True;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Application Name=\"Microsoft SQL Server Data Tools, SQL Server Object Explorer\""); DataTable originalStudentsDT = new DataTable();
         DataTable originalSubjectsDT = new DataTable();
         public addForm()
         {
             InitializeComponent();
-            originalStudentsDT = databaseQueries.GetDataTable("Students", sqlC);
-            addMarkStudentSelectionCB.DataSource = originalStudentsDT;
-            addMarkStudentSelectionCB.DisplayMember = originalStudentsDT.Columns[2].ToString();
-
-            originalSubjectsDT = databaseQueries.GetDataTable("Subjects", sqlC);
-            addMarkSubjectSelectionCB.DataSource = originalSubjectsDT;
-            addMarkSubjectSelectionCB.DisplayMember = originalSubjectsDT.Columns[1].ToString();
+            refreshComboboxes();
         }
 
         private void addSubjectGUI_Enter(object sender, EventArgs e)
@@ -62,7 +55,16 @@ namespace PrjSem2Task1
 
         private void addMarkButton_Click(object sender, EventArgs e)
         {
+            int x;
+            if (Int32.TryParse(addMarkTextBox.Text, out x) && x >= 0 && x <= 10)
+            {
+                DataRowView drSubject = (DataRowView)addMarkSubjectSelectionCB.SelectedItem;
+                DataRowView drStudent = (DataRowView)addMarkStudentSelectionCB.SelectedItem;
 
+                databaseQueries.insertMark(new Guid(drStudent[0].ToString()), new Guid(drSubject[0].ToString()), x, sqlC);
+            }
+            else MessageBox.Show("Mark should be an integer from 0 to 10");
+            addMarkTextBox.Clear();
         }
 
         private void addSubjectButton_Click(object sender, EventArgs e)
@@ -70,19 +72,34 @@ namespace PrjSem2Task1
             if (addSubjectTextBox.Text.Length > 0)
             {
                 databaseQueries.insertSubject(addSubjectTextBox.Text, sqlC);
-                Close();
+                refreshComboboxes();
+                addSubjectTextBox.Clear();
             }
             else MessageBox.Show("Fill in the subject textbox");
         }
 
         private void addStudentButton_Click(object sender, EventArgs e)
         {
-            if (addNameTextBox.Text.Length > 0 && addSurnameTextBox.Text.Length > 0)
+            if (addStudentNameTextBox.Text.Length > 0 && addStudentSurnameTextBox.Text.Length > 0)
             {
-                databaseQueries.insertStudent(addNameTextBox.Text, addSurnameTextBox.Text, sqlC);
-                Close();
+                databaseQueries.insertStudent(addStudentNameTextBox.Text, addStudentSurnameTextBox.Text, sqlC);
+                refreshComboboxes();
+                addStudentNameTextBox.Clear();
+                addStudentSurnameTextBox.Clear();
             }
             else MessageBox.Show("Fill in both name and surname textboxes");
+        }
+        private void refreshComboboxes()
+        {
+            originalStudentsDT = databaseQueries.GetDataTable("Students", sqlC);
+            addMarkStudentSelectionCB.DataSource = originalStudentsDT;
+            addMarkStudentSelectionCB.DisplayMember = originalStudentsDT.Columns[2].ToString();
+
+            originalSubjectsDT = databaseQueries.GetDataTable("Subjects", sqlC);
+            addMarkSubjectSelectionCB.DataSource = originalSubjectsDT;
+            addMarkSubjectSelectionCB.DisplayMember = originalSubjectsDT.Columns[1].ToString();
+            addMarkStudentSelectionCB.SelectedIndex = 0;
+            addMarkSubjectSelectionCB.SelectedIndex = 0;
         }
     }
 }

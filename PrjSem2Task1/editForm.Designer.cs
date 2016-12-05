@@ -32,8 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.adadsd = new System.Windows.Forms.Label();
             this.studentGB = new System.Windows.Forms.GroupBox();
-            this.studentNameTB = new System.Windows.Forms.TextBox();
             this.studentSurnameTB = new System.Windows.Forms.TextBox();
+            this.studentNameTB = new System.Windows.Forms.TextBox();
             this.subjectGB = new System.Windows.Forms.GroupBox();
             this.subjectNameTB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,6 +53,7 @@
             this.applyStudentButton.Name = "applyStudentButton";
             this.applyStudentButton.Size = new System.Drawing.Size(248, 23);
             this.applyStudentButton.TabIndex = 0;
+            this.applyStudentButton.TabStop = false;
             this.applyStudentButton.Text = "Apply";
             this.applyStudentButton.UseVisualStyleBackColor = true;
             this.applyStudentButton.Click += new System.EventHandler(this.applyStudentButton_Click);
@@ -88,19 +89,21 @@
             this.studentGB.TabIndex = 3;
             this.studentGB.TabStop = false;
             // 
-            // studentNameTB
-            // 
-            this.studentNameTB.Location = new System.Drawing.Point(6, 32);
-            this.studentNameTB.Name = "studentNameTB";
-            this.studentNameTB.Size = new System.Drawing.Size(248, 20);
-            this.studentNameTB.TabIndex = 3;
-            // 
             // studentSurnameTB
             // 
             this.studentSurnameTB.Location = new System.Drawing.Point(6, 71);
             this.studentSurnameTB.Name = "studentSurnameTB";
             this.studentSurnameTB.Size = new System.Drawing.Size(248, 20);
             this.studentSurnameTB.TabIndex = 4;
+            this.studentSurnameTB.TabStop = false;
+            // 
+            // studentNameTB
+            // 
+            this.studentNameTB.Location = new System.Drawing.Point(6, 32);
+            this.studentNameTB.Name = "studentNameTB";
+            this.studentNameTB.Size = new System.Drawing.Size(248, 20);
+            this.studentNameTB.TabIndex = 3;
+            this.studentNameTB.TabStop = false;
             // 
             // subjectGB
             // 
@@ -119,6 +122,7 @@
             this.subjectNameTB.Name = "subjectNameTB";
             this.subjectNameTB.Size = new System.Drawing.Size(248, 20);
             this.subjectNameTB.TabIndex = 3;
+            this.subjectNameTB.TabStop = false;
             // 
             // label2
             // 
@@ -135,6 +139,7 @@
             this.applySubjectButton.Name = "applySubjectButton";
             this.applySubjectButton.Size = new System.Drawing.Size(248, 23);
             this.applySubjectButton.TabIndex = 0;
+            this.applySubjectButton.TabStop = false;
             this.applySubjectButton.Text = "Apply";
             this.applySubjectButton.UseVisualStyleBackColor = true;
             this.applySubjectButton.Click += new System.EventHandler(this.applySubjectButton_Click);
@@ -156,6 +161,7 @@
             this.markTB.Name = "markTB";
             this.markTB.Size = new System.Drawing.Size(248, 20);
             this.markTB.TabIndex = 3;
+            this.markTB.TabStop = false;
             // 
             // label3
             // 
@@ -172,6 +178,7 @@
             this.applyMarkButton.Name = "applyMarkButton";
             this.applyMarkButton.Size = new System.Drawing.Size(248, 23);
             this.applyMarkButton.TabIndex = 0;
+            this.applyMarkButton.TabStop = false;
             this.applyMarkButton.Text = "Apply";
             this.applyMarkButton.UseVisualStyleBackColor = true;
             this.applyMarkButton.Click += new System.EventHandler(this.applyMarkButton_Click);
